@@ -63,4 +63,33 @@ class Game() :
 
 
     def play_with_mouse(self):
-        pass
+        pygame.init()
+        
+        self.player = Player(self.screen)
+
+        while self.running:
+            
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.running = False
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        return  # Retour au menu
+
+            self.screen.fill("white")
+            self.player.draw(self.screen)
+            self.player.move_mouse(pygame.mouse.get_pos(), self.dt)
+
+            # Générer de la nourriture
+            # Par exemple, générer 10 instances de nourriture
+            if len(self.foods) < 10:
+                self.foods.append(Food(self.screen))
+
+            # Dessiner chaque instance de nourriture
+            for self.food in self.foods:
+                self.food.draw(self.screen)
+
+            # Mettre à jour l'écran
+            pygame.display.flip()
+
+        pygame.quit()
