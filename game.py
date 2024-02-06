@@ -52,6 +52,15 @@ class Game() :
             # Dessiner chaque instance de nourriture
             for self.food in self.foods:
                 self.food.draw(self.screen)
+                
+            # Générer des pièges
+            # Par exemple, générer 10 instances de nourriture
+            if len(self.traps) < 2:
+                self.traps.append(Trap(self.screen))
+
+            # Dessiner chaque instance de nourriture
+            for self.trap in self.traps:
+                self.trap.draw(self.screen)
 
             # Mettre à jour l'écran
             pygame.display.flip()
@@ -88,6 +97,18 @@ class Game() :
             # Dessiner chaque instance de nourriture
             for self.food in self.foods:
                 self.food.draw(self.screen)
+                
+            # Générer des pièges
+            # Par exemple, générer 10 instances de nourriture
+            if len(self.traps) < 2:
+                self.traps.append(Trap(self.screen))
+
+            # Dessiner chaque instance de nourriture
+            for self.trap in self.traps:
+                self.trap.draw(self.screen)
+                
+                
+                
 
             # Mettre à jour l'écran
             pygame.display.flip()
