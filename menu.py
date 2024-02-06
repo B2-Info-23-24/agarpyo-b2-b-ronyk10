@@ -1,6 +1,7 @@
 import pygame, sys
 from button import Button
 from keyboard_play import play_with_keyboard
+from mouse_play import play_with_mouse
 
 pygame.init()
 
@@ -12,7 +13,8 @@ BG = pygame.image.load("assets/Background.png")
 def get_font(size):
     return pygame.font.Font("assets/font.ttf", size)
 
-def play_mouse():
+# def play_mouse():
+
     while True:
         PLAY_MOUSE_POS = pygame.mouse.get_pos()
 
@@ -63,6 +65,10 @@ def play_mouse():
                     main_menu()
 
         pygame.display.update()
+        
+def play_mouse():
+    play_with_mouse()
+
         
 def play_keyboard():
     play_with_keyboard()
