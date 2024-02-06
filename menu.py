@@ -1,5 +1,6 @@
 import pygame, sys
 from button import Button
+from keyboard_play import play_with_keyboard
 
 pygame.init()
 
@@ -37,7 +38,7 @@ def play_mouse():
 
         pygame.display.update()
     
-def play_keyboard():
+# def play_keyboard():
     while True:
         OPTIONS_MOUSE_POS = pygame.mouse.get_pos()
 
@@ -62,6 +63,9 @@ def play_keyboard():
                     main_menu()
 
         pygame.display.update()
+        
+def play_keyboard():
+    play_with_keyboard()
 
 def main_menu():
     while True:
