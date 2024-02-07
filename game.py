@@ -1,3 +1,4 @@
+#PENSER A METTRE LES COMMENTAIRES EN ANGLAIS
 from player import Player
 from food import Food
 from trap import Trap
@@ -11,6 +12,8 @@ class Game() :
         self.dt = self.clock.tick(60) / 5000
         self.running = True 
         self.screen = pygame.display.set_mode((1280, 720))
+        self.screen_width, self.screen_height = self.screen.get_width(), self.screen.get_height()  
+
         self.player = Player(self.screen)
         self.foods = [
             Food(self.screen),
@@ -18,6 +21,20 @@ class Game() :
         ]
         
         self.traps = [Trap(self.screen), Trap(self.screen)]
+        
+    def handle_player_boundary(self):
+    # Si le joueur dépasse la bordure gauche ou droite de l'écran
+        if self.player.pos_x < 0:
+            self.player.pos_x = self.screen_width  # Téléporter à droite
+        elif self.player.pos_x > self.screen_width:
+            self.player.pos_x = 0  # Téléporter à gauche
+
+    # Si le joueur dépasse la bordure supérieure ou inférieure de l'écran
+        if self.player.pos_y < 0:
+            self.player.pos_y = self.screen_height  # Téléporter en bas
+        elif self.player.pos_y > self.screen_height:
+            self.player.pos_y = 0  # Téléporter en haut
+
         
     def play(self):
         if self.isKeyboard :
@@ -43,9 +60,10 @@ class Game() :
             self.screen.fill("white")
             self.player.draw(self.screen)
             self.player.move_keyboard(self)
+            self.handle_player_boundary()
 
             # Générer de la nourriture
-            # Par exemple, générer 10 instances de nourriture
+            
             if len(self.foods) < 10:
                 self.foods.append(Food(self.screen))
 
@@ -54,7 +72,7 @@ class Game() :
                 self.food.draw(self.screen)
                 
             # Générer des pièges
-            # Par exemple, générer 10 instances de nourriture
+            
             if len(self.traps) < 2:
                 self.traps.append(Trap(self.screen))
 
@@ -88,9 +106,11 @@ class Game() :
             self.screen.fill("white")
             self.player.draw(self.screen)
             self.player.move_mouse(pygame.mouse.get_pos(), self.dt)
+            self.handle_player_boundary()
+
 
             # Générer de la nourriture
-            # Par exemple, générer 10 instances de nourriture
+       
             if len(self.foods) < 10:
                 self.foods.append(Food(self.screen))
 
@@ -99,7 +119,6 @@ class Game() :
                 self.food.draw(self.screen)
                 
             # Générer des pièges
-            # Par exemple, générer 10 instances de nourriture
             if len(self.traps) < 2:
                 self.traps.append(Trap(self.screen))
 
