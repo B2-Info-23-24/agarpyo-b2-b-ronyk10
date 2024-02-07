@@ -25,14 +25,14 @@ class Game() :
     def handle_player_boundary(self):
     # Si le joueur dépasse la bordure gauche ou droite de l'écran
         if self.player.pos_x < 0:
-            self.player.pos_x = self.screen_width  # Téléporter à droite
-        elif self.player.pos_x > self.screen_width:
+            self.player.pos_x = self.screen_width -1 # Téléporter à droite
+        elif self.player.pos_x > self.screen_width -1:
             self.player.pos_x = 0  # Téléporter à gauche
 
     # Si le joueur dépasse la bordure supérieure ou inférieure de l'écran
         if self.player.pos_y < 0:
-            self.player.pos_y = self.screen_height  # Téléporter en bas
-        elif self.player.pos_y > self.screen_height:
+            self.player.pos_y = self.screen_height -1  # Téléporter en bas
+        elif self.player.pos_y > self.screen_height -1:
             self.player.pos_y = 0  # Téléporter en haut
 
         
