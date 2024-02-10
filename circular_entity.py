@@ -1,5 +1,5 @@
 import pygame
-
+#Using a parent class because player, food and trap have perticularities in common
 class CircularEntity:
      def __init__(self, size, color, x, y):
          self.size = size
