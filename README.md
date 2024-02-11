@@ -26,20 +26,10 @@ cd ./agarpyo-b2-b-ronyk10
 
 Créez et activez un environnement virtuel à partir d'un fichier d'import environnement.yml
 ```bash
-conda env create -f roroio.yml
+conda env create -f roroio.yaml
 conda activate roroio
 ```
 
-## Contenu de roroio.yml
-```bash
-name: roroio
-channels:
-  - defaults
-  - conda-forge
-dependencies:
-  - python=3.10.13
-  - pygame=2.5.2
-```
 
 ## Lancer le jeu
 ```bash
